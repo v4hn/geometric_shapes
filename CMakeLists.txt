@@ -34,16 +34,16 @@ else()
 endif()
 
 find_package(octomap REQUIRED)
-find_package(catkin COMPONENTS cmake_modules visualization_msgs shape_msgs resource_retriever random_numbers eigen_stl_containers)
+find_package(catkin COMPONENTS visualization_msgs shape_msgs resource_retriever random_numbers eigen_stl_containers)
 find_package(console_bridge REQUIRED)
 
-find_package(Eigen REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 catkin_package(
   INCLUDE_DIRS include ${OCTOMAP_INCLUDE_DIRS}
   LIBRARIES ${PROJECT_NAME} ${OCTOMAP_LIBRARIES}
   CATKIN_DEPENDS shape_msgs random_numbers eigen_stl_containers visualization_msgs
-  DEPENDS Eigen console_bridge
+  DEPENDS EIGEN3 console_bridge
   )
 
 find_package(Qhull REQUIRED)
@@ -52,7 +52,7 @@ if (HAVE_QHULL_2011)
 endif()
 
 include_directories(include)
-include_directories(SYSTEM ${EIGEN_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} ${ASSIMP_INCLUDE_DIRS} ${OCTOMAP_INCLUDE_DIRS})
+include_directories(SYSTEM ${EIGEN3_INCLUDE_DIR} ${Boost_INCLUDE_DIR} ${ASSIMP_INCLUDE_DIRS} ${OCTOMAP_INCLUDE_DIRS})
 include_directories(${catkin_INCLUDE_DIRS} ${console_bridge_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS} ${console_bridge_LIBRARY_DIRS} ${ASSIMP_LIBRARY_DIRS})
 
