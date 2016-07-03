@@ -40,10 +40,10 @@ find_package(console_bridge REQUIRED)
 find_package(Eigen3 REQUIRED)
 
 catkin_package(
-  INCLUDE_DIRS include ${OCTOMAP_INCLUDE_DIRS}
+  INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME} ${OCTOMAP_LIBRARIES}
   CATKIN_DEPENDS shape_msgs random_numbers eigen_stl_containers visualization_msgs
-  DEPENDS EIGEN3 console_bridge
+  DEPENDS EIGEN3 console_bridge OCTOMAP
   )
 
 find_package(Qhull REQUIRED)
